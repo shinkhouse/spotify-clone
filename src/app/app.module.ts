@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { unauthorizedInterceptorProvider } from './core/interceptors/unauthorized.interceptor';
 import { authInterceptorProvider } from './core/interceptors/auth.interceptor';
+import { PlayerToolbarModule } from './core/components/player-toolbar/player-toolbar.module';
+import { SidenavbarModule } from './core/components/sidenavbar/sidenavbar.module';
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule, PlayerToolbarModule, SidenavbarModule],
     providers: [authInterceptorProvider, unauthorizedInterceptorProvider],
     bootstrap: [AppComponent],
 })
