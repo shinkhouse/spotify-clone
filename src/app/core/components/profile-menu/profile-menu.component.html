@@ -1,0 +1,5 @@
+<div *ngIf="profile" class="profile-menu" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+    <img [src]="profile.images[0].url">
+    <span>{{profile.display_name}}</span>
+    <svg role="img" height="16" width="16" class="arrow-down" viewBox="0 0 16 16"><path d="M3 6l5 5.794L13 6z"></path></svg>
+</div>
