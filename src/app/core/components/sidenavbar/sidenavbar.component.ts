@@ -16,14 +16,14 @@ export class SidenavbarComponent implements OnInit {
         { label: 'My Artists', path: '/collection/artists' },
     ];
     public playlists: any;
-    constructor(private playlist: PlaylistService) {}
+    constructor(private playlistService: PlaylistService) {}
 
     ngOnInit(): void {
         this.getPlaylists();
     }
 
     getPlaylists() {
-        this.playlist.getUserSavedPlaylists().subscribe((res) => {
+        this.playlistService.getUserSavedPlaylists().subscribe((res) => {
             this.playlists = res;
         });
     }
