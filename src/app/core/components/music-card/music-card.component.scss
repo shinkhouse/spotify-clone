@@ -1,0 +1,33 @@
+.music-card {
+    background: #181818;
+    padding: 16px;
+    border-radius: 4px;
+
+    img {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 16px;
+    }
+    .title {
+        color: white;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: normal;
+        line-height: 24px;
+        text-transform: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .subtitle {
+        color: rgb(179, 179, 179);
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: normal;
+        line-height: 16px;
+        text-transform: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
