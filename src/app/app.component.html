@@ -1,7 +1,14 @@
 
-<div class="container">
-  <spotify-sidenavbar></spotify-sidenavbar>
-  <router-outlet></router-outlet>
-  <spotify-player-toolbar></spotify-player-toolbar>
-</div>
+
+<main>
+  <div class="container">
+    <div class="root">
+      <spotify-sidenavbar></spotify-sidenavbar>
+      <div class="main-view">
+        <router-outlet></router-outlet>
+      </div>
+      <spotify-player-toolbar></spotify-player-toolbar>
+    </div>
+  </div>
+</main>
 
