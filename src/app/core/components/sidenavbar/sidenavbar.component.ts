@@ -8,7 +8,7 @@ import { PlaylistService } from '../../services/playlist.service';
 })
 export class SidenavbarComponent implements OnInit {
     public navItems = [
-        { label: 'Home', path: '', exact: true },
+        { label: 'Home', path: '/home', exact: true },
         { label: 'Search', path: '/search' },
         { label: 'My Playlists', path: '/collection/playlists' },
         { label: 'My Podcasts', path: '/collection/podcasts' },
