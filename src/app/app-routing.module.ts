@@ -4,6 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
     {
         path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
+        path: 'home',
         loadChildren: async () => (await import('./pages/home/home.module')).HomeModule,
     },
     {
@@ -13,6 +18,10 @@ const routes: Routes = [
     {
         path: 'artist',
         loadChildren: async () => (await import('./pages/artists/artists.module')).ArtistsModule,
+    },
+    {
+        path: 'podcast',
+        loadChildren: async () => (await import('./pages/podcasts/podcasts.module')).PodcastsModule,
     },
     {
         path: 'collection',
