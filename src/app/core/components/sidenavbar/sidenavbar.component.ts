@@ -11,7 +11,9 @@ export class SidenavbarComponent implements OnInit {
         { label: 'Home', path: '', exact: true },
         { label: 'Search', path: '/search' },
         { label: 'My Playlists', path: '/collection/playlists' },
-        { label: 'My Albums', path: '/albums' },
+        { label: 'My Podcasts', path: '/collection/podcasts' },
+        { label: 'My Albums', path: '/collection/albums' },
+        { label: 'My Artists', path: '/collection/artists' },
     ];
     public playlists: any;
     constructor(private playlist: PlaylistService) {}

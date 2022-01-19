@@ -1,0 +1,16 @@
+<nav fxLayout="column"> 
+    <div class="nav-header">
+        <a routerLink="/"><img src="../../../../assets/images/spotify_logo_white.png"></a>
+    </div>
+    <ul class="navigation-items">
+        <li *ngFor="let navItem of navItems">
+            <a [routerLink]="navItem.path" routerLinkActive="active">{{navItem.label}}</a>
+        </li>
+    </ul>
+    <hr>
+    <ul class="playlists" fxFlex>
+        <li *ngFor="let playlist of playlists.items">
+            <a routerLink="/playlist/{{playlist.id}}" routerLinkActive="active">{{playlist.name}}</a>
+        </li>
+    </ul>
+</nav>
