@@ -7,19 +7,19 @@ const routes: Routes = [
         loadChildren: async () => (await import('./pages/home/home.module')).HomeModule,
     },
     {
-        path: 'albums',
+        path: 'album',
         loadChildren: async () => (await import('./pages/albums/albums.module')).AlbumsModule,
     },
     {
-        path: 'artists',
+        path: 'artist',
         loadChildren: async () => (await import('./pages/artists/artists.module')).ArtistsModule,
     },
     {
-        path: 'collections',
+        path: 'collection',
         loadChildren: async () => (await import('./pages/collections/collections.module')).CollectionsModule,
     },
     {
-        path: 'playlists',
+        path: 'playlist',
         loadChildren: async () => (await import('./pages/playlists/playlists.module')).PlaylistsModule,
     },
     {
