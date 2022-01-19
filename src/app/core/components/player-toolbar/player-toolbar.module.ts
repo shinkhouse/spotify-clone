@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlayerToolbarComponent } from './player-toolbar.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -9,7 +10,8 @@ import { PlayerToolbarComponent } from './player-toolbar.component';
     PlayerToolbarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FlexLayoutModule
   ],
   exports: [
     PlayerToolbarComponent

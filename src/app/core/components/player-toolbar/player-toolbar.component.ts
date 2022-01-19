@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlayerService } from '../../services/player.service';
 
 @Component({
   selector: 'spotify-player-toolbar',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerToolbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private player: PlayerService) { }
 
   ngOnInit(): void {
   }

@@ -22,4 +22,38 @@ footer {
     -ms-user-select: none;
     user-select: none;
     padding: 0px 24px;
+
+    .now-playing-card {
+        border: 1px solid red;
+        img {
+            width: 56px;
+            height: 56px;
+        }
+
+        .title {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: normal;
+            line-height: 16px;
+            text-transform: none;
+        }
+
+        .subtitle {
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: normal;
+            line-height: 16px;
+            text-transform: none;
+        }
+    }
+
+    .player-controls {
+
+        border: 1px solid red;
+    }
+
+    .volume-misc-controls {
+
+        border: 1px solid red;
+    }
 }
