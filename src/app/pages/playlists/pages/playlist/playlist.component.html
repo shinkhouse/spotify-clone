@@ -25,23 +25,26 @@
                     <th>Title</th>
                     <th>Album</th>
                     <th>Date Added</th>
-                    <th>Track Length</th>
+                    <th class="duration">Track Length</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let tracks of playlistInfo.tracks?.items; let i = index">
                     <td>{{i + 1}}</td>
                     <td>
-                        <div fxLayout="column">
-                            <span>{{tracks.track.name}}</span>
-                            <div fxLayout="row">
-                                <span *ngFor="let artist of tracks.track.artists">{{artist.name}}<ng-container *ngIf="tracks.track.artists.length > 1">, </ng-container></span>
+                        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
+                            <img class="album-image" [src]="tracks.track.album.images[0].url">
+                            <div fxLayout="column">
+                                <span>{{tracks.track.name}}</span>
+                                <div fxLayout="row">
+                                    <span *ngFor="let artist of tracks.track.artists">{{artist.name}}<ng-container *ngIf="tracks.track.artists.length > 1">, </ng-container></span>
+                                </div>
                             </div>
                         </div>
                     </td>
                     <td>{{tracks.track.album.name}}</td>
-                    <td>{{tracks.added_at}}</td>
-                    <td>{{tracks.track.duration_ms}}</td>
+                    <td>{{tracks.added_at | date}}</td>
+                    <td class="duration">{{tracks.track.duration_ms | duration}}</td>
                 </tr>
             </tbody>
         </table>

@@ -5,6 +5,7 @@ import { PlaylistRoutingModule } from './playlist-routing.module';
 import { PlaylistComponent } from './playlist.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TopbarModule } from 'src/app/core/components/topbar/topbar.module';
+import { DurationPipeModule } from 'src/app/core/pipes/duration/duration-pipe.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { TopbarModule } from 'src/app/core/components/topbar/topbar.module';
     CommonModule,
     PlaylistRoutingModule,
     FlexLayoutModule,
-    TopbarModule
+    TopbarModule,
+    DurationPipeModule
   ]
 })
 export class PlaylistModule { }
