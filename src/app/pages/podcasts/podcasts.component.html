@@ -1,1 +1,14 @@
-<p>podcasts works!</p>
+<spotify-topbar></spotify-topbar>
+<div class="podcasts">
+    <h2>Podcasts</h2>
+    <div class="cards-container">
+        <spotify-music-card
+            *ngFor="let podcast of podcasts?.items"
+            cardLink="/podcast/{{ podcast.show.id }}"
+            [imageSource]="podcast.show.images[0].url"
+            imageShape="square"
+            [cardTitle]="podcast.show.name"
+            [cardSubtitle]="podcast.show.name"
+        ></spotify-music-card>
+    </div>
+</div>
