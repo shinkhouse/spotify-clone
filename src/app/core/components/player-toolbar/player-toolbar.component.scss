@@ -1,0 +1,25 @@
+:host {
+    background-color: #181818;
+    grid-area: now-playing-bar;
+    width: 100%;
+    z-index: 4;
+}
+
+footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    background-color: #181818;
+    border-top: 1px solid #282828;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 90px;
+    min-width: 620px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 0px 24px;
+}
