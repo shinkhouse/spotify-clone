@@ -32,6 +32,7 @@ export const spotify = {
         //Users - For SDK Playback //https://developer.spotify.com/documentation/web-playback-sdk/quick-start/
         'user-read-email',
         'user-read-private',
+        'user-follow-read',
     ],
 };
 
