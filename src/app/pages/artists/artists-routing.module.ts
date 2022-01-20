@@ -4,9 +4,13 @@ import { ArtistsComponent } from './artists.component';
 
 const routes: Routes = [
     {
-      path: '',
-      component: ArtistsComponent
-    }
+        path: '',
+        component: ArtistsComponent,
+    },
+    {
+        path: ':artistId',
+        loadChildren: async () => (await import('./pages/artist/artist.module')).ArtistModule,
+    },
 ];
 
 @NgModule({

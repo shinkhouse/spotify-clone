@@ -3,10 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AlbumsComponent } from './albums.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AlbumsComponent
-  }
+    {
+        path: '',
+        component: AlbumsComponent,
+    },
+    {
+        path: ':albumId',
+        loadChildren: async () => (await import('./pages/album/album.module')).AlbumModule,
+    },
 ];
 
 @NgModule({
