@@ -1,0 +1,16 @@
+.mat-menu-panel {
+    margin-top: 8px;
+    .mat-menu-item {
+        height: 40px;
+        padding: 12px;
+        div {
+            height: 100%;
+            mat-icon {
+                width: 18px;
+                height: 18px;
+                font-size: 18px;
+                margin: 0px;
+            }
+        }
+    }
+}
