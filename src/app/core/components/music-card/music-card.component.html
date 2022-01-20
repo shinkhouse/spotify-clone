@@ -1,5 +1,10 @@
 <div class="music-card" fxLayout="column" [routerLink]="cardLink">
-    <img [src]="imageSource" [class]="imageShape">
+    <div class="image-container">
+        <img [src]="imageSource" [class]="imageShape">
+        <button class="mat-elevation-z4" mat-icon-button>
+            <mat-icon>play_arrow</mat-icon>
+        </button>
+    </div>
     <p class="title">{{cardTitle}}</p>
     <p class="subtitle">{{cardSubtitle}}</p>
 </div>
