@@ -10,8 +10,8 @@
         matRipple
         (menuOpened)="onMenuOpened()"
     >
-        <img [src]="profile.images[0].url" />
-        <span>{{ profile.display_name }}</span>
+        <img [src]="profile?.images[0].url" />
+        <span>{{ profile?.display_name }}</span>
         <svg role="img" height="16" width="16" class="arrow-down" viewBox="0 0 16 16"><path d="M3 6l5 5.794L13 6z"></path></svg>
     </div>
     <!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button> -->
@@ -23,7 +23,7 @@
                 <mat-icon>open_in_new</mat-icon>
             </div>
             </a>
-        <a routerLink="/user/{{profile.id}}" mat-menu-item>
+        <a routerLink="/user/{{profile?.id}}" mat-menu-item>
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
                 <span>Profile</span>
                 <div fxFlex></div>
