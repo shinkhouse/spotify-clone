@@ -8,9 +8,11 @@ import { unauthorizedInterceptorProvider } from './core/interceptors/unauthorize
 import { authInterceptorProvider } from './core/interceptors/auth.interceptor';
 import { PlayerToolbarModule } from './core/components/player-toolbar/player-toolbar.module';
 import { SidenavbarModule } from './core/components/sidenavbar/sidenavbar.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule, PlayerToolbarModule, SidenavbarModule],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule, PlayerToolbarModule, SidenavbarModule, BrowserAnimationsModule, MatIconModule],
     providers: [authInterceptorProvider, unauthorizedInterceptorProvider],
     bootstrap: [AppComponent],
 })
