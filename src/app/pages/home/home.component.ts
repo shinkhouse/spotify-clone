@@ -12,4 +12,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getGreetingMessage() {
+    const now = new Date();
+    const hours = now.getHours();
+    return hours < 12 ? 'Good Morning' : hours < 18 ? 'Good Afternoon' : 'Good Evening';
+  }
+
 }
