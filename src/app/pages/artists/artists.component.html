@@ -1,1 +1,14 @@
-<p>artists works!</p>
+<spotify-topbar></spotify-topbar>
+<div class="artists">
+    <h2>Artists</h2>
+    <div class="cards-container">
+        <spotify-music-card
+            *ngFor="let artist of artists?.artists.items"
+            cardLink="/artist/{{ artist.id }}"
+            [imageSource]="artist.images[0]?.url"
+            imageShape="round"
+            [cardTitle]="artist.name"
+            [cardSubtitle]="artist.type | titlecase"
+        ></spotify-music-card>
+    </div>
+</div>

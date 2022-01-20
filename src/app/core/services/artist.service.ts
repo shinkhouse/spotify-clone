@@ -12,6 +12,10 @@ export class ArtistService {
         return this.http.get<SpotifyApi.ArtistObjectFull>(`${spotify.baseAPIUrl}/artists/${artistId}`);
     }
 
+    getFollowedArtists() {
+        return this.http.get<SpotifyApi.UsersFollowedArtistsResponse>(`${spotify.baseAPIUrl}/me/following?type=artist`);
+    }
+
     getArtistTopTracks(artistId: string, country: string) {
         return this.http.get<SpotifyApi.ArtistsTopTracksResponse>(
             `${spotify.baseAPIUrl}/artists/${artistId}/top-tracks?market=${country}`
