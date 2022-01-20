@@ -1,5 +1,39 @@
-<div *ngIf="profile" class="profile-menu" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-    <img [src]="profile.images[0].url">
-    <span>{{profile.display_name}}</span>
-    <svg role="img" height="16" width="16" class="arrow-down" viewBox="0 0 16 16"><path d="M3 6l5 5.794L13 6z"></path></svg>
+<div class="profile-menu-container">
+    <div
+        id="menu-button"
+        [matMenuTriggerFor]="menu"
+        *ngIf="profile"
+        class="profile-menu"
+        fxLayout="row"
+        fxLayoutAlign="start center"
+        fxLayoutGap="8px"
+        matRipple
+        (menuOpened)="onMenuOpened()"
+    >
+        <img [src]="profile.images[0].url" />
+        <span>{{ profile.display_name }}</span>
+        <svg role="img" height="16" width="16" class="arrow-down" viewBox="0 0 16 16"><path d="M3 6l5 5.794L13 6z"></path></svg>
+    </div>
+    <!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button> -->
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
+                <span>Account</span>
+                <div fxFlex></div>
+                <mat-icon>open_in_new</mat-icon>
+            </div>
+        </button>
+        <button mat-menu-item>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
+                <span>Profile</span>
+                <div fxFlex></div>
+            </div>
+        </button>
+        <button mat-menu-item>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
+                <span>Log out</span>
+                <div fxFlex></div>
+            </div>
+        </button>
+    </mat-menu>
 </div>

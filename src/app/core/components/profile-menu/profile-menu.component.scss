@@ -1,16 +1,18 @@
-.profile-menu {
-    border-radius: 32px;
-    background: black;
-    height: 32px;
-    padding: 2px;
-    img {
-        width: 28px;
-        height: 28px;
-        border-radius: 14px;
-    }
-
-    svg.arrow-down {
-        fill: white;
-        margin-inline-end: 8px;
+.profile-menu-container {
+    .profile-menu {
+        border-radius: 32px;
+        background: black;
+        height: 32px;
+        padding: 2px;
+        img {
+            width: 28px;
+            height: 28px;
+            border-radius: 14px;
+        }
+    
+        svg.arrow-down {
+            fill: white;
+            margin-inline-end: 8px;
+        }
     }
 }
