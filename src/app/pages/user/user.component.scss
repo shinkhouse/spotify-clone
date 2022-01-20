@@ -1,0 +1,21 @@
+.profile-info {
+    margin-bottom: 16px;
+    h1 {
+        font-size: 72px;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        line-height: 96px;
+        text-transform: none;
+    }
+    img {
+        width: 230px;
+        height: 230px;
+        border-radius: 230px;
+    }
+    .dot-spacer {
+        margin: 0px 4px;
+    }
+    .group-type {
+        text-transform: uppercase;
+    }
+}

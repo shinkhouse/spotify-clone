@@ -1,1 +1,39 @@
-<p>user works!</p>
+<spotify-topbar></spotify-topbar>
+<div class="page-container" fxLayout="column">
+    <div class="profile-info">
+        <div fxLayout="row" fxLayoutGap="16px">
+            <img [src]="profile.images[0].url" />
+            <div fxLayout="column">
+                <div fxFlex></div>
+                <h6 class="group-type">{{ profile.type }}</h6>
+                <h1>{{ profile.display_name }}</h1>
+                <div fxLayout="row">
+                    <span>{{ profile.followers.total | number }} followers</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div fxLayout="column">
+        <h2>Top Artists</h2>
+        <div class="cards-container">
+            <spotify-music-card
+                *ngFor="let artist of topArtists?.items"
+                cardLink="/artist/{{ artist.id }}"
+                [imageSource]="artist.images[0]?.url"
+                imageShape="round"
+                [cardTitle]="artist.name"
+                [cardSubtitle]="artist.type | titlecase"
+            ></spotify-music-card>
+        </div>
+        <h2>Top Tracks</h2>
+        <div class="cards-container">
+            <spotify-music-card
+                *ngFor="let track of topTracks?.items"
+                [imageSource]="track.album.images[0]?.url"
+                imageShape="square"
+                [cardTitle]="track.name"
+                [cardSubtitle]="track.artists[0].name | titlecase"
+            ></spotify-music-card>
+        </div>
+    </div>
+</div>
