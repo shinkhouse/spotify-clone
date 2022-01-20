@@ -11,6 +11,7 @@ export class MusicCardComponent implements OnInit {
   @Input() imageShape: 'round' | 'square' = 'square';
   @Input() cardTitle: string = '';
   @Input() cardSubtitle: string = '';
+  @Input() showPlayButton: boolean = true;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
 <div class="music-card" fxLayout="column" [routerLink]="cardLink">
     <div class="image-container">
         <img [src]="imageSource" [class]="imageShape" onError="this.src = 'https://picsum.photos/200'">
-        <button class="mat-elevation-z4" mat-icon-button>
+        <button *ngIf="showPlayButton" class="mat-elevation-z4" mat-icon-button>
             <mat-icon>play_arrow</mat-icon>
         </button>
     </div>
