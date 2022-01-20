@@ -20,11 +20,18 @@
         img {
             width: 100%;
             height: 100%;
+            &.square {
+                border-radius: 4px;
+            }
+            &.round {
+                border-radius: 200px;
+            }
         }
     }
     &:hover {
         @include mat.elevation-transition();
         @include mat.elevation(6);
+        background: #282828;
         .image-container {
             button {
                 display: block;
