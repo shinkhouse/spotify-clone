@@ -8,12 +8,12 @@ import { PlaylistService } from '../../services/playlist.service';
 })
 export class SidenavbarComponent implements OnInit {
     public navItems = [
-        { label: 'Home', path: '/home', exact: true },
-        { label: 'Search', path: '/search' },
-        { label: 'My Playlists', path: '/collection/playlists' },
-        { label: 'My Podcasts', path: '/collection/podcasts' },
-        { label: 'My Albums', path: '/collection/albums' },
-        { label: 'My Artists', path: '/collection/artists' },
+        { label: 'Home', path: '/home', exact: true, icon: 'home_outlined' },
+        { label: 'Search', path: '/search', icon: 'search' },
+        { label: 'My Playlists', path: '/collection/playlists', icon: 'queue_music' },
+        { label: 'My Podcasts', path: '/collection/podcasts', icon: 'podcasts' },
+        { label: 'My Albums', path: '/collection/albums', icon: 'album' },
+        { label: 'My Artists', path: '/collection/artists', icon: 'art_track' },
     ];
     public playlists: any;
     constructor(private playlistService: PlaylistService) {}

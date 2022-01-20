@@ -4,7 +4,10 @@
     </div>
     <ul class="navigation-items">
         <li *ngFor="let navItem of navItems">
-            <a [routerLink]="navItem.path" routerLinkActive="active">{{navItem.label}}</a>
+            <a [routerLink]="navItem.path" routerLinkActive="active">
+                <mat-icon>{{navItem.icon}}</mat-icon>
+                <span>{{navItem.label}}</span>
+            </a>
         </li>
     </ul>
     <hr>
