@@ -1,8 +1,8 @@
 <div class="topbar" fxLayout="row" fxLayout="start center" fxLayoutGap="8px">
-    <button class="navigation-button" mat-icon-button>
+    <button (click)="goBack()" class="navigation-button" mat-icon-button>
         <mat-icon>chevron_left</mat-icon>
     </button>
-    <button class="navigation-button" mat-icon-button>
+    <button (click)="goForward()" class="navigation-button" mat-icon-button>
         <mat-icon>chevron_right</mat-icon>
     </button>
     <div fxFlex></div>
