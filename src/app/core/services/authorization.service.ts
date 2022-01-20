@@ -14,7 +14,7 @@ export class AuthorizationService {
     createAuthorizeURL() {
         const params = new URLSearchParams({
             client_id: this.clientId,
-            redirect_uri: `${window.location.origin}/`,
+            redirect_uri: `${window.location.origin}/spotify-clone/`,
             scope: encodeURIComponent(this.scopes.join(' ')),
             response_type: 'token',
         });
