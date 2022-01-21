@@ -5,6 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { PlayButtonModule } from '../play-button/play-button.module';
 
 
 
@@ -17,7 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
     FlexLayoutModule,
     RouterModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    PlayButtonModule
   ],
   exports: [
     MusicCardComponent

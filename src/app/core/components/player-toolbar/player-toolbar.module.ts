@@ -5,6 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
+import { PlayButtonModule } from '../play-button/play-button.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MatSliderModule } from '@angular/material/slider';
     FlexLayoutModule,
     MatIconModule,
     MatButtonModule,
-    MatSliderModule
+    MatSliderModule,
+    PlayButtonModule
   ],
   exports: [
     PlayerToolbarComponent

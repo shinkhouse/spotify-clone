@@ -13,9 +13,7 @@
         width: 100%;
         margin-bottom: 16px;
 
-        button {
-            background-color: #1db954;
-            color: #fff;
+        spotify-play-button {
             position: absolute;
             bottom: 8px;
             right: 8px;
@@ -45,7 +43,7 @@
         @include mat.elevation(6);
         background: #282828;
         .image-container {
-            button {
+            spotify-play-button {
                 display: block;
             }
         }

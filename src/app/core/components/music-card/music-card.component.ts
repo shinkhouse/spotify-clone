@@ -17,4 +17,8 @@ export class MusicCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  togglePlay(ev: any) {
+      console.log(ev);
+  }
+
 }

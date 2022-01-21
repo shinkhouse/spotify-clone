@@ -1,0 +1,8 @@
+button.mat-icon-button {
+    color: black;
+    background: white;
+    &.primary {
+        background-color: #1db954;
+        color: #fff;
+    }
+}
