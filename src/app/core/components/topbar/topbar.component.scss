@@ -1,9 +1,32 @@
 .topbar {
     padding: 16px 32px;
     height: 64px;
-    
+
     .navigation-button {
         background: black;
         color: white;
+    }
+
+    .search-bar {
+        position: relative;
+        flex: 0 1 400px;
+        border: 0;
+        border-radius: 500px;
+        color: #000;
+        height: 40px;
+        padding: 8px 8px 8px 16px;
+        text-overflow: ellipsis;
+        background: white;
+        margin: 0px 16px;
+
+        mat-icon {
+            color: rgba(0, 0, 0, 0.87);
+        }
+        input {
+            width: 100%;
+            outline: none;
+            border: none;
+            margin: 0px 8px;
+        }
     }
 }

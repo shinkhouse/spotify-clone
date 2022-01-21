@@ -5,6 +5,13 @@
     <button (click)="goForward()" class="navigation-button" mat-icon-button>
         <mat-icon>chevron_right</mat-icon>
     </button>
+    <form *ngIf="doesRouteContainSearch()" class="search-bar" fxLayout="row" fxLayoutAlign="start center">
+        <mat-icon>search</mat-icon>
+        <input [formControl]="searchControl" type="text" placeholder="Artists, songs, albums, playlists, or podcasts">
+        <button mat-icon-button>
+            <mat-icon>close</mat-icon>
+        </button>
+    </form>
     <div fxFlex></div>
     <spotify-profile-menu></spotify-profile-menu>
 </div>
