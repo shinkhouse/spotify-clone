@@ -1,0 +1,14 @@
+<spotify-topbar></spotify-topbar>
+<div class="page-container">
+    <h2>{{genre?.name}}</h2>
+    <div class="cards-container">
+        <spotify-music-card
+            *ngFor="let playlist of playlists?.items"
+            cardLink="/playlist/{{ playlist.id }}"
+            [imageSource]="playlist.images[0].url"
+            imageShape="square"
+            [cardTitle]="playlist.name"
+            [cardSubtitle]="getCardSubtitle(playlist.owner.display_name)"
+        ></spotify-music-card>
+    </div>
+</div>

@@ -35,6 +35,19 @@ export class BrowseService {
             .pipe(map((res) => res.categories));
     }
 
+    getCategoryById(
+        categoryId: string,
+        params: SpotifyApiParams = {
+            limit: 50,
+        }
+    ) {
+        return this.http
+            .get<SpotifyApi.SingleCategoryResponse>(`${this.browseUrl}/categories/${categoryId}`, {
+                params,
+            })
+            .pipe(map((res) => res));
+    }
+
     getCategoryPlaylists(
         categoryId: string,
         params: SpotifyApiParams = {

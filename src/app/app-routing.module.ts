@@ -5,7 +5,7 @@ const routes: Routes = [
     {
         path: '',
         redirectTo: 'home',
-        pathMatch: 'full'
+        pathMatch: 'full',
     },
     {
         path: 'home',
@@ -38,6 +38,10 @@ const routes: Routes = [
     {
         path: 'search',
         loadChildren: async () => (await import('./pages/search/search.module')).SearchModule,
+    },
+    {
+        path: 'genre',
+        loadChildren: async () => (await import('./pages/genre/genre.module')).GenreModule,
     },
 ];
 
