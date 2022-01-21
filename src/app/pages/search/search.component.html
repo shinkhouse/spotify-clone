@@ -1,2 +1,50 @@
 <spotify-topbar></spotify-topbar>
-<p>search works!</p>
+<div class="page-container">
+    <div *ngIf="searchResults">
+        <h2>Artists</h2>
+        <div class="cards-container">
+            <spotify-music-card
+                *ngFor="let artist of searchResults.artists?.items"
+                cardLink="/artist/{{ artist.id }}"
+                [imageSource]="artist.images[0]?.url"
+                imageShape="round"
+                [cardTitle]="artist.name"
+                [cardSubtitle]="artist.type | titlecase"
+            ></spotify-music-card>
+        </div>
+        <h2>Albums</h2>
+        <div class="cards-container">
+            <spotify-music-card
+                *ngFor="let album of searchResults.albums?.items"
+                cardLink="/album/{{ album.id }}"
+                [imageSource]="album.images[0]?.url"
+                imageShape="square"
+                [cardTitle]="album.name"
+                [cardSubtitle]="album.artists[0].name"
+            ></spotify-music-card>
+        </div>
+        <h2>Playlists</h2>
+        <div class="cards-container">
+            <spotify-music-card
+                *ngFor="let playlist of searchResults.playlists?.items"
+                cardLink="/playlist/{{ playlist.id }}"
+                [imageSource]="playlist.images[0].url"
+                imageShape="square"
+                [cardTitle]="playlist.name"
+                [cardSubtitle]="getCardSubtitle(playlist.owner.display_name)"
+            ></spotify-music-card>
+        </div>
+        
+        <h2>Podcasts</h2>
+        <div class="cards-container">
+            <spotify-music-card
+                *ngFor="let podcast of searchResults.shows?.items"
+                cardLink="/podcast/{{ podcast.id }}"
+                [imageSource]="podcast.images[0].url"
+                imageShape="square"
+                [cardTitle]="podcast.name"
+                [cardSubtitle]="podcast.name"
+            ></spotify-music-card>
+        </div>
+    </div>
+</div>
