@@ -18,7 +18,7 @@ export class SearchApiService {
      * @return {*}  {(Observable<SearchResponse>)}
      */
     search(term: string, apiParams: SpotifyApiParams = { limit: 50 }): Observable<SearchResponse> {
-        const params = new HttpParams({ fromObject: apiParams }).set('q', term).set('type', 'track,artist,album,playlist');
+        const params = new HttpParams({ fromObject: apiParams }).set('q', term).set('type', 'track,artist,album,playlist,show,episode');
 
         return this.http.get<SpotifyApi.SearchResponse>(`${spotify.baseAPIUrl}/search`, { params });
     }
