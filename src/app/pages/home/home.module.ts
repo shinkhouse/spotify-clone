@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { TopbarModule } from 'src/app/core/components/topbar/topbar.module';
 import { MusicCardModule } from 'src/app/core/components/music-card/music-card.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MusicCardModule } from 'src/app/core/components/music-card/music-card.m
     CommonModule,
     HomeRoutingModule,
     TopbarModule,
-    MusicCardModule
+    MusicCardModule,
+    FlexLayoutModule
   ]
 })
 export class HomeModule { }

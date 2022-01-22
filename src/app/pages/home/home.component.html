@@ -1,27 +1,41 @@
 <spotify-topbar></spotify-topbar>
 <div class="page-container">
-    <h1>{{getGreetingMessage()}}</h1>
+    <h1>{{ getGreetingMessage() }}</h1>
+    <section>
+        <div class="card-grid-container">
+            <ng-container *ngFor="let playlist of featuredPlaylists?.playlists.items; let i = index">
+                <div class="title-card" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px" *ngIf="i < 8">
+                    <div class="image-container">
+                        <div class="image">
+                            <img [src]="playlist?.images[0]?.url" />
+                        </div>
+                    </div>
+                    <span>{{ playlist?.name }}</span>
+                </div>
+            </ng-container>
+        </div>
+    </section>
     <h2>Featured Playlists</h2>
-        <div class="cards-container">
-            <spotify-music-card
-                *ngFor="let playlist of featuredPlaylists?.playlists.items"
-                cardLink="/playlist/{{playlist.id}}"
-                [imageSource]="playlist.images[0]?.url"
-                imageShape="square"
-                [cardTitle]="playlist.name"
-                [cardSubtitle]="playlist.description | titlecase"
-            ></spotify-music-card>
-        </div>
-        <h2>Categories</h2>
-        <div class="cards-container">
-            <spotify-music-card
-                *ngFor="let category of categories?.items"
-                [imageSource]="category.icons[0]?.url"
-                cardLink="/genre/{{category.id}}"
-                imageShape="square"
-                [cardTitle]="category.name"
-                [cardSubtitle]="category.description | titlecase"
-                [showPlayButton]="false"
-            ></spotify-music-card>
-        </div>
+    <div class="cards-container">
+        <spotify-music-card
+            *ngFor="let playlist of featuredPlaylists?.playlists.items"
+            cardLink="/playlist/{{ playlist.id }}"
+            [imageSource]="playlist.images[0]?.url"
+            imageShape="square"
+            [cardTitle]="playlist.name"
+            [cardSubtitle]="playlist.description | titlecase"
+        ></spotify-music-card>
+    </div>
+    <h2>Categories</h2>
+    <div class="cards-container">
+        <spotify-music-card
+            *ngFor="let category of categories?.items"
+            [imageSource]="category.icons[0]?.url"
+            cardLink="/genre/{{ category.id }}"
+            imageShape="square"
+            [cardTitle]="category.name"
+            [cardSubtitle]="category.description | titlecase"
+            [showPlayButton]="false"
+        ></spotify-music-card>
+    </div>
 </div>
