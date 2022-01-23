@@ -1,8 +1,9 @@
 <spotify-topbar></spotify-topbar>
+<div class="background-section" [ngStyle]="{'background-color': backgroundColor}"></div>
 <div class="page-container" fxLayout="column">
-    <div class="playlist-header-info">
+    <div *ngIf="playlistInfo" class="playlist-header-info">
         <div fxLayout="row" fxLayoutGap="16px">
-            <img [src]="playlistInfo.images[0].url">
+            <img *ngIf="playlistInfo && playlistInfo.images" [src]="playlistInfo.images[0].url">
             <div fxLayout="column">
                 <div fxFlex></div>
                 <h6 class="group-type">{{playlistInfo.type}}</h6>
@@ -17,7 +18,7 @@
             </div>
         </div>
     </div>
-    <div class="playlist-tracks" fxFlex>
+    <div *ngIf="playlistInfo" class="playlist-tracks" fxFlex>
         <table>
             <thead>
                 <tr>
@@ -33,7 +34,7 @@
                     <td>{{i + 1}}</td>
                     <td>
                         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
-                            <img class="album-image" [src]="tracks.track.album.images[0].url">
+                            <img *ngIf="tracks.track.album.images" class="album-image" [src]="tracks.track.album.images[0].url">
                             <div fxLayout="column">
                                 <span>{{tracks.track.name}}</span>
                                 <div fxLayout="row">
