@@ -11,7 +11,7 @@
         </li>
     </ul>
     <hr>
-    <ul class="playlists" fxFlex>
+    <ul class="playlists" *ngIf="playlists" fxFlex>
         <li *ngFor="let playlist of playlists.items">
             <a routerLink="/playlist/{{playlist.id}}" routerLinkActive="active">{{playlist.name}}</a>
         </li>
