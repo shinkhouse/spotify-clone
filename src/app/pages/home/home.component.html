@@ -1,10 +1,11 @@
 <spotify-topbar></spotify-topbar>
+<div class="background-section" [ngStyle]="{'background-color': backgroundColor}"></div>
 <div class="page-container">
     <h1>{{ getGreetingMessage() }}</h1>
     <section>
         <div class="card-grid-container">
             <ng-container *ngFor="let playlist of featuredPlaylists?.playlists.items; let i = index">
-                <div class="title-card" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px" *ngIf="i < 8">
+                <div routerLink="/playlist/{{ playlist.id }}" class="title-card" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px" *ngIf="i < 8"  (mouseenter) ="getItemBackgroundColor(i, $event)" (mouseleave) ="getItemBackgroundColor(i, $event)">
                     <div class="image-container">
                         <div class="image">
                             <img [src]="playlist?.images[0]?.url" />
