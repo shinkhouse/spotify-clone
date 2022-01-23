@@ -1,1 +1,47 @@
-<p>album works!</p>
+<spotify-topbar></spotify-topbar>
+<div class="background-section" [ngStyle]="{ 'background-color': backgroundColor }"></div>
+<div class="page-container" fxLayout="column">
+    <div *ngIf="albumInfo" class="playlist-header-info">
+        <div fxLayout="row" fxLayoutGap="16px">
+            <img [src]="albumInfo.images[0].url">
+            <div fxLayout="column">
+                <div fxFlex></div>
+                <h6 class="group-type">{{albumInfo.type}}</h6>
+                <h1>{{albumInfo.name}}</h1>
+                <div fxLayout="row">
+                    <span>{{albumInfo.artists[0].name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="albumTracks" class="playlist-tracks" fxFlex>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th class="duration">Track Length</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tracks of albumTracks.items; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>
+                        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
+                            <img class="album-image" [src]="albumInfo.images[0].url" />
+                            <div fxLayout="column">
+                                <span>{{ tracks.name }}</span>
+                                <div fxLayout="row">
+                                    <span *ngFor="let artist of tracks.artists"
+                                        >{{ artist.name }}<ng-container *ngIf="tracks.artists.length > 1">, </ng-container></span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="duration">{{ tracks.duration_ms | duration }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
