@@ -21,4 +21,8 @@ export class ArtistService {
             `${spotify.baseAPIUrl}/artists/${artistId}/top-tracks?market=${country}`
         );
     }
+
+    getArtistAlbums(artistId: string) {
+        return this.http.get<SpotifyApi.ArtistsAlbumsResponse>(`${spotify.baseAPIUrl}/artists/${artistId}/albums`);
+    }
 }

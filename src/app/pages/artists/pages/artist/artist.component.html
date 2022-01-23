@@ -1,1 +1,71 @@
-<p>artist works!</p>
+<spotify-topbar></spotify-topbar>
+<div class="background-section" [ngStyle]="{ 'background-color': backgroundColor }"></div>
+<div class="page-container" fxLayout="column">
+    <div *ngIf="artistInfo" class="playlist-header-info">
+        <div fxLayout="row" fxLayoutGap="16px">
+            <img class="rounded" *ngIf="artistInfo && artistInfo.images" [src]="artistInfo.images[0].url">
+            <div fxLayout="column">
+                <div fxFlex></div>
+                <h6 class="group-type">{{artistInfo.type}}</h6>
+                <h1>{{artistInfo.name}}</h1>
+                <div fxLayout="row">
+                    <span>{{artistInfo.name}}</span>
+                    <span class="dot-spacer">•</span> 
+                    <span>{{artistInfo.followers.total | number}} followers</span>
+                </div>
+                <div fxLayout="row">
+                    <div *ngFor="let genre of artistInfo.genres; let idx = index">
+                        <span>{{genre | titlecase}}</span>
+                        <span *ngIf="(idx + 1) < artistInfo.genres.length" class="dot-spacer">•</span> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="artistTopTracks" class="playlist-tracks" fxFlex>
+        <h2>Top Songs</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Album</th>
+                    <th>Release Date</th>
+                    <th class="duration">Track Length</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tracks of artistTopTracks.tracks; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>
+                        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
+                            <img *ngIf="tracks.album.images" class="album-image" [src]="tracks.album.images[0].url" />
+                            <div fxLayout="column">
+                                <span>{{ tracks.name }}</span>
+                                <div fxLayout="row">
+                                    <span *ngFor="let artist of tracks.artists"
+                                        >{{ artist.name }}<ng-container *ngIf="tracks.artists.length > 1">, </ng-container></span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{ tracks.album.name }}</td>
+                    <td>{{ tracks.album.release_date | date }}</td>
+                    <td class="duration">{{ tracks.duration_ms | duration }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h2>Albums</h2>
+    <div class="cards-container">
+        <spotify-music-card
+            *ngFor="let album of artistAlbums?.items"
+            cardLink="/album/{{ album.id }}"
+            [imageSource]="album.images[0]?.url"
+            imageShape="square"
+            [cardTitle]="album.name"
+            [cardSubtitle]="album.artists[0].name"
+        ></spotify-music-card>
+    </div>
+</div>
