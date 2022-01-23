@@ -23,61 +23,61 @@
  */
 
 @font-face {
-	font-family: "Circular Sp Grk Black Italic Web";
+	font-family: "Circular Black Italic";
 	src: url("fonts/Circular Sp Grk Web Black Italic.woff") format("woff"),
 		 url("fonts/Circular Sp Grk Web Black Italic.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: "Circular Sp Grk Black Web";
+	font-family: "Circular Black";
 	src: url("fonts/Circular Sp Grk Web Black.woff") format("woff"),
 		 url("fonts/Circular Sp Grk Web Black.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: "Circular Sp Grk Bold Italic Web";
+	font-family: "Circular Bold Italic";
 	src: url("fonts/Circular Sp Grk Web Bold Italic.woff") format("woff"),
 		 url("fonts/Circular Sp Grk Web Bold Italic.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: "Circular Sp Grk Bold Web";
+	font-family: "Circular Bold";
 	src: url("fonts/Circular Sp Grk Web Bold.woff") format("woff"),
 		 url("fonts/Circular Sp Grk Web Bold.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: "Circular Sp Grk Book Italic Web";
+	font-family: "Circular Book Italic";
 	src: url("fonts/Circular Sp Grk Web Book Italic.woff") format("woff"),
 		 url("fonts/Circular Sp Grk Web Book Italic.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: "Circular Sp Grk Book Web";
+	font-family: "Circular Book";
 	src: url("fonts/Circular Sp Grk Web Book.woff") format("woff"),
 		 url("fonts/Circular Sp Grk Web Book.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: "Circular Sp Grk Light Italic Web";
+	font-family: "Circular Light Italic";
 	src: url("fonts/Circular Sp Grk Web Light Italic.woff") format("woff"),
 		 url("fonts/Circular Sp Grk Web Light Italic.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: "Circular Sp Grk Light Web";
+	font-family: "Circular Light";
 	src: url("fonts/Circular Sp Grk Web Light.woff") format("woff"),
 		 url("fonts/Circular Sp Grk Web Light.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: "Circular Sp Grk Medium Italic Web";
+	font-family: "Circular Medium Italic";
 	src: url("fonts/Circular Sp Grk Web Medium Italic.woff") format("woff"),
 		 url("fonts/Circular Sp Grk Web Medium Italic.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: "Circular Sp Grk Medium Web";
+	font-family: "Circular Medium";
 	src: url("fonts/Circular Sp Grk Web Medium.woff") format("woff"),
 		 url("fonts/Circular Sp Grk Web Medium.woff2") format("woff2");
 }
