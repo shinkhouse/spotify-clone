@@ -1,7 +1,7 @@
 <spotify-topbar></spotify-topbar>
 <div class="background-section" [ngStyle]="{'background-color': backgroundColor}"></div>
 <div class="page-container" fxLayout="column">
-    <div *ngIf="playlistInfo" class="playlist-header-info">
+    <div *ngIf="playlistInfo" class="playlist-header-info" fxLayout="column" fxLayoutGap="16px">
         <div fxLayout="row" fxLayoutGap="16px">
             <img *ngIf="playlistInfo && playlistInfo.images" [src]="playlistInfo.images[0].url">
             <div fxLayout="column">
@@ -17,6 +17,9 @@
                 </div>
             </div>
         </div>
+        <div class="actions-row" fxLayout="row">
+            <spotify-play-button [isFab]="true" [primary]="true" (togglePlay)="togglePlay($event, playlistInfo.uri)" [isPlaying]="isPlaying$ | async"></spotify-play-button>
+        </div>
     </div>
     <div *ngIf="playlistInfo" class="playlist-tracks" fxFlex>
         <table>
@@ -31,7 +34,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let tracks of playlistInfo.tracks?.items; let i = index">
-                    <td>{{i + 1}}</td>
+                    <td (click)="togglePlayTrack(false, tracks.track.uri)">{{i + 1}}</td>
                     <td>
                         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
                             <img *ngIf="tracks.track.album.images" class="album-image" [src]="tracks.track.album.images[0].url">

@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { startWith } from 'rxjs';
+import { AlbumInfo } from 'src/app/core/models/album.model';
 import { AlbumService } from 'src/app/core/services/album.service';
 import { ColorService } from 'src/app/core/services/color.service';
+import { PlaybackStore } from 'src/app/core/stores/playback.store';
+import { PlayerService } from 'src/app/core/services/player.service';
 
 @Component({
     selector: 'spotify-album',
@@ -10,10 +14,18 @@ import { ColorService } from 'src/app/core/services/color.service';
 })
 export class AlbumComponent implements OnInit {
     public albumId: string = '';
-    public albumInfo: any;
-    public albumTracks: any;
+    public albumInfo: AlbumInfo;
+    public albumTracks: SpotifyApi.AlbumTracksResponse;
     public backgroundColor: string = '#009688';
-    constructor(private route: ActivatedRoute, private albumService: AlbumService, private colors: ColorService) {
+    isPlaying$ = this.playbackStore.isPlaying$.pipe(startWith(false));
+
+    constructor(
+        private route: ActivatedRoute,
+        private albumService: AlbumService,
+        private colors: ColorService,
+        private player: PlayerService,
+        private playbackStore: PlaybackStore
+    ) {
         this.route.paramMap.subscribe((res: Params) => {
             this.albumInfo = null;
             this.albumTracks = null;
@@ -45,5 +57,13 @@ export class AlbumComponent implements OnInit {
             this.albumInfo.colors = res;
             this.backgroundColor = res[0];
         });
+    }
+
+    togglePlay(isPlaying: boolean, uri: string) {
+        this.player
+            .togglePlay(isPlaying, {
+                context_uri: uri,
+            })
+            .subscribe();
     }
 }

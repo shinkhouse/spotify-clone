@@ -1,17 +1,25 @@
 <spotify-topbar></spotify-topbar>
 <div class="background-section" [ngStyle]="{ 'background-color': backgroundColor }"></div>
 <div class="page-container" fxLayout="column">
-    <div *ngIf="albumInfo" class="playlist-header-info">
+    <div *ngIf="albumInfo" class="playlist-header-info" fxLayout="column" fxLayoutGap="16px">
         <div fxLayout="row" fxLayoutGap="16px">
-            <img [src]="albumInfo.images[0].url">
+            <img [src]="albumInfo.images[0].url" />
             <div fxLayout="column">
                 <div fxFlex></div>
-                <h6 class="group-type">{{albumInfo.type}}</h6>
-                <h1>{{albumInfo.name}}</h1>
+                <h6 class="group-type">{{ albumInfo.type }}</h6>
+                <h1>{{ albumInfo.name }}</h1>
                 <div fxLayout="row">
-                    <span>{{albumInfo.artists[0].name}}</span>
+                    <span>{{ albumInfo.artists[0].name }}</span>
                 </div>
             </div>
+        </div>
+        <div class="actions-row" fxLayout="row">
+            <spotify-play-button
+                [isFab]="true"
+                [primary]="true"
+                (togglePlay)="togglePlay($event, albumInfo.uri)"
+                [isPlaying]="isPlaying$ | async"
+            ></spotify-play-button>
         </div>
     </div>
     <div *ngIf="albumTracks" class="playlist-tracks" fxFlex>

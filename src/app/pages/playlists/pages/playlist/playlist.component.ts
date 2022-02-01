@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivationEnd, Params, Router } from '@angular/router';
+import { startWith } from 'rxjs';
 import { ColorService } from 'src/app/core/services/color.service';
+import { PlaybackService } from 'src/app/core/services/playback.service';
+import { PlaybackStore } from 'src/app/core/stores/playback.store';
+import { PlayerService } from 'src/app/core/services/player.service';
 import { PlaylistService } from 'src/app/core/services/playlist.service';
 
 @Component({
@@ -14,11 +18,14 @@ export class PlaylistComponent implements OnInit {
     public playlistTracks: any = null;
     public backgroundColor: string = '#009688';
     public blockId: string | number = '';
+    isPlaying$ = this.playbackStore.isPlaying$.pipe(startWith(false));
     constructor(
         private router: Router,
         private route: ActivatedRoute,
         private playlistService: PlaylistService,
-        private colors: ColorService
+        private colors: ColorService,
+        private player: PlayerService,
+        private playbackStore: PlaybackStore
     ) {
         this.route.paramMap.subscribe((res: Params) => {
             this.playlistInfo = null;
@@ -30,9 +37,7 @@ export class PlaylistComponent implements OnInit {
         });
     }
 
-    ngOnInit(): void {
-        
-    }
+    ngOnInit(): void {}
 
     getPlaylistById() {
         this.playlistService.getById(this.playlistId).subscribe((res) => {
@@ -53,5 +58,21 @@ export class PlaylistComponent implements OnInit {
             this.playlistInfo.colors = res;
             this.backgroundColor = res[0];
         });
+    }
+
+    togglePlayTrack(isPlaying: boolean, trackUri: string) {
+        this.player
+            .togglePlay(isPlaying, {
+                uris: [trackUri],
+            })
+            .subscribe();
+    }
+
+    togglePlay(isPlaying: boolean, uri: string) {
+        this.player
+            .togglePlay(isPlaying, {
+                context_uri: uri,
+            })
+            .subscribe();
     }
 }
