@@ -26,6 +26,7 @@ export class BrowseService {
     getAllCategories(
         params: SpotifyApiParams = {
             limit: 50,
+            country: 'US'
         }
     ) {
         return this.http
