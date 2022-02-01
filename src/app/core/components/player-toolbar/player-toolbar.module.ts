@@ -6,6 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 import { PlayButtonModule } from '../play-button/play-button.module';
+import { DurationPipeModule } from '../../pipes/duration/duration-pipe.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,10 @@ import { PlayButtonModule } from '../play-button/play-button.module';
     MatIconModule,
     MatButtonModule,
     MatSliderModule,
-    PlayButtonModule
+    PlayButtonModule,
+    DurationPipeModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     PlayerToolbarComponent

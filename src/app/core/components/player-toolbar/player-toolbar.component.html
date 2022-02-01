@@ -1,9 +1,15 @@
 <footer fxLayout="row" fxLayoutAlign="start center">
-    <div class="now-playing-card" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
-        <img src="https://i.scdn.co/image/ab67616d00004851a111c87c210cc9bff93948bd" />
+    <div
+        class="now-playing-card"
+        fxLayout="row"
+        fxLayoutAlign="start center"
+        fxLayoutGap="16px"
+        *ngIf="currentTrack$ | async as currentTrack"
+    >
+        <img [src]="currentTrack.album.images[0].url" />
         <div fxLayout="column">
-            <p class="title">Track Title Name</p>
-            <p class="subtitle">Track Subtitle</p>
+            <p class="title">{{ currentTrack.name }}</p>
+            <p class="subtitle">{{ currentTrack.artists[0].name }}</p>
         </div>
         <button mat-icon-button>
             <mat-icon>favorite_outline</mat-icon>
@@ -17,31 +23,40 @@
         <div fxLayout="column" fxLayoutAlign="center center">
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                 <button mat-icon-button>
-                    <mat-icon>shuffle</mat-icon>
+                    <mat-icon svgIcon="shuffle"></mat-icon>
+                </button>
+                <button mat-icon-button (click)="previousSong()">
+                    <mat-icon svgIcon="previous"></mat-icon>
+                </button>
+                <spotify-play-button [primary]="false" [isPlaying]="isPlaying$ | async" (togglePlay)="togglePlay()"></spotify-play-button>
+                <button mat-icon-button (click)="nextSong()">
+                    <mat-icon svgIcon="next"></mat-icon>
                 </button>
                 <button mat-icon-button>
-                    <mat-icon>skip_previous</mat-icon>
-                </button>
-                <spotify-play-button [primary]="false" [isPlaying]="false"></spotify-play-button>
-                <button mat-icon-button>
-                    <mat-icon>skip_next</mat-icon>
-                </button>
-                <button mat-icon-button>
-                    <mat-icon>repeat</mat-icon>
+                    <mat-icon svgIcon="repeat"></mat-icon>
                 </button>
             </div>
             <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-                <span class="duration-text">0:00</span>
-                <mat-slider class="music-duration" min="0" max="100" step="0.5" value="0"></mat-slider>
-                <span class="duration-text">4:34</span>
+                <span class="duration-text">{{ progress$ | async | duration }}</span>
+                <mat-slider
+                    [ngModel]="progress$ | async"
+                    (ngModelChange)="onChange()"
+                    class="music-duration"
+                    min="0"
+                    [max]="max$ | async"
+                    step="0.01"
+                ></mat-slider>
+                <span class="duration-text">
+                    {{ max$ | async | duration }}
+                </span>
             </div>
         </div>
     </div>
     <div fxFlex></div>
     <div class="volume-misc-controls" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
-        <button mat-icon-button>
-            <mat-icon>volume_up</mat-icon>
+        <button mat-icon-button (click)="toggleMute()">
+            <mat-icon *ngIf="volumeIcon$ | async as volumeIcon">{{volumeIcon}}</mat-icon>
         </button>
-        <mat-slider min="0" max="100" step="0.5" value="30"></mat-slider>
+        <mat-slider min="0" max="1" step="0.01" [ngModel]="volume$ | async" (ngModelChange)="changeVolume($event)"></mat-slider>
     </div>
 </footer>

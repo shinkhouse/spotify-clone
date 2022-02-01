@@ -5,7 +5,8 @@
     <ul class="navigation-items">
         <li *ngFor="let navItem of navItems">
             <a [routerLink]="navItem.path" routerLinkActive="active">
-                <mat-icon>{{navItem.icon}}</mat-icon>
+                <mat-icon *ngIf="!navItem.svgIcon">{{navItem.icon}}</mat-icon>
+                <mat-icon *ngIf="navItem.svgIcon" [svgIcon]="navItem.svgIcon"></mat-icon>
                 <span>{{navItem.label}}</span>
             </a>
         </li>
