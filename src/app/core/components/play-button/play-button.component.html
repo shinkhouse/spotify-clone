@@ -1,3 +1,8 @@
-<button class="mat-elevation-z4" [class.primary]="primary" mat-icon-button>
-    <mat-icon>{{isPlaying ? 'play_arrow' : 'pause'}}</mat-icon>
+<button *ngIf="!isFab; else fabButton" class="mat-elevation-z4" [class.primary]="primary" mat-icon-button (click)="togglePlay.emit(isPlaying!)">
+    <mat-icon [svgIcon]="isPlaying ? 'pause' : 'play'"></mat-icon>
 </button>
+<ng-template #fabButton>
+    <button mat-fab class="mat-elevation-z4" [class.primary]="primary" (click)="togglePlay.emit(isPlaying!)">
+        <mat-icon [svgIcon]="isPlaying ? 'pause' : 'play'"></mat-icon>
+    </button>
+</ng-template>

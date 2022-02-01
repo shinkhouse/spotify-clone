@@ -7,5 +7,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class PlayButtonComponent {
     @Input() isPlaying: boolean | null | undefined;
     @Input() primary = false;
+    @Input() isFab: boolean = false;
     @Output() togglePlay = new EventEmitter<boolean>();
 }
