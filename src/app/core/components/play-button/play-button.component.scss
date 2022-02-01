@@ -6,3 +6,10 @@ button.mat-icon-button {
         color: #fff;
     }
 }
+
+button.mat-fab {
+    &.primary {
+        background-color: #1db954;
+        color: #fff;
+    }
+}
